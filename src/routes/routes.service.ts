@@ -1,11 +1,20 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
+import { Stop } from './routes.model';
 
 @Injectable()
 export class RoutesService {
-  create(createRouteDto: CreateRouteDto) {
-    return 'This action adds a new route';
+  constructor(
+    @InjectModel('Route') private routeModel: Model<any>,
+  ) { }
+
+  async create(stops: Stop[]): Promise<string> {
+    const newRoute = new this.routeModel({ stops });
+    const result = await newRoute.save(); 
+    return "testing";
   }
 
   findAll() {
