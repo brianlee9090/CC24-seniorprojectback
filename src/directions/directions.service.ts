@@ -14,6 +14,7 @@ export class DirectionsService {
       const response = await axios.get("https://maps.googleapis.com/maps/api/directions/json", {
         params: {
           origin: coordinates,
+          mode: 'walking',
           destination: destination, 
           key: `${process.env.USER_KEY}`
         },
