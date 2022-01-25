@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RoutesModule } from './routes/routes.module';
 
+
 @Module({
   imports: [DirectionsModule, ConfigModule.forRoot(), MongooseModule.forRoot(`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PW}@db.5g66y.mongodb.net/justgo_db?retryWrites=true&w=majority`), RoutesModule],
   controllers: [AppController],

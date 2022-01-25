@@ -13,7 +13,8 @@ export class DirectionsService {
     try{
       const response = await axios.get("https://maps.googleapis.com/maps/api/directions/json", {
         params: {
-          origin: "35.6807581,139.6750012",
+          origin: coordinates,
+          mode: 'walking',
           destination: destination, 
           key: `${process.env.USER_KEY}`
         },
