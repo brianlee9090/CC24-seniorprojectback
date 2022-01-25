@@ -15,13 +15,6 @@ export class DirectionsController {
   }
 
 
-  // params : { ...userLocation, destination: places.coord.toString(), key: apiKey }
-  // params: {
-  //   coordinates: {}, 
-  //   destination: , 
-  //   key: , 
-  // }
-
   @Get(':coordinates')
   getDirections(@Query('origin') coordinates: string, @Query('destination')destination: string) {
     return this.directionsService.getDirections(coordinates, destination);

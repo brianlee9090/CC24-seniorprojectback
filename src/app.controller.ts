@@ -7,7 +7,7 @@ import axios from "axios";
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/get')
+  @Get()
   postRequest(): string {
     return 'hello post request the third';
   }
