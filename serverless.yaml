@@ -1,0 +1,31 @@
+service: cc24backend
+
+useDotenv: true
+
+plugins: 
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment: 
+    MONGO_DB_USER: ${env:MONGO_DB_USER}
+    MONGO_DB_PW: ${env:MONGO_DB_PW}
+    USER_KEY: ${env:USER_KEY}
+    PLACES_KEY: ${env:PLACES_KEY}
+    GEOCODE_KEY: ${env:GEOCODE_KEY}
+
+functions:
+  main:
+    handler: dist/serverless.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
