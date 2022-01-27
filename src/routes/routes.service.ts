@@ -10,7 +10,7 @@ export class RoutesService {
   constructor(
     @InjectModel('Route') private routeModel: Model<any>,
   ) { }
-
+  
   async create(stops: Stop[]): Promise<string> {
     const newRoute = new this.routeModel({ stops });
     const result = await newRoute.save(); 
