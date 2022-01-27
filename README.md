@@ -30,6 +30,8 @@
 
 ```bash
 $ npm install
+
+$ npm install mongoose @nestjs/mongoose
 ```
 
 ## Running the app
