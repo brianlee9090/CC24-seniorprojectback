@@ -8,6 +8,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs14.x
+  region: ap-northeast-1
   environment: 
     MONGO_DB_USER: ${env:MONGO_DB_USER}
     MONGO_DB_PW: ${env:MONGO_DB_PW}
