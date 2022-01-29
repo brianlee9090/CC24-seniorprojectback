@@ -5,9 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PlaceSchema } from './places.model';
 
 @Module({
-  //1. importing schema from Model so 
-  //2. allow access to this schema inside of this resource
-  //2.it labels the table and assigns it the schema we created in Model
+  //Import PlaceSchema from places.model.ts and stores it as the name 'Place'
   imports: [MongooseModule.forFeature([{ name: 'Place', schema: PlaceSchema }])],
   controllers: [PlacesController],
   providers: [PlacesService]

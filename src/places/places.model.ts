@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-//create schema using TypeScript Mongoose
+//Create schema for places using TypeScript Mongoose
 export const PlaceSchema = new mongoose.Schema({
     google_Id: String,
     name: String,
@@ -10,7 +10,7 @@ export const PlaceSchema = new mongoose.Schema({
     type: String
 });
 
-//create interface here so we don't have to repeatedly make a new object 
+//Create interface for place objects to use for Typescript typing
 export interface PlaceInterface {
     google_Id: string,
     name: string,

@@ -32,15 +32,15 @@ export class PlacesService {
     const { lat, lng } = data.result.geometry.location;
 
     const dataObj = {
-      google_Id: placeID,
-      name: data.result.name,
-      coord: [lat, lng],
-      img: await this.getImageStr(data.result.photos[0].photo_reference),
-      hours: data.result.opening_hours.weekday_text,
-      type: data.result.icon,
+      google_Id: placeID || "newId",
+      name: data.result.name || "noName",
+      coord: [lat, lng] || [-1, -1],
+      img: await this.getImageStr(data.result?.photos[0]?.photo_reference) || "No image available",
+      hours: data.result?.opening_hours?.weekday_text || ["no hours provided"],
+      type: data.result?.icon || "https://static.thenounproject.com/png/3451501-200.png",
     };
 
-    return dataObj;    
+    return dataObj;
   }
 
   async getImageStr(photoRef: string): Promise<string> {
@@ -55,17 +55,15 @@ export class PlacesService {
     return Buffer.from(data, 'binary').toString('base64');
   }
 
-  //must define the type of return for the function; which here is a Promise
-  //and the Promise needs a type; which here is the Place type(interface)
   async create(place: PlaceInterface): Promise<PlaceInterface> {
-    //instantiate an instance of PlaceModel
     const newPlace = new this.placeModel(place);
     const result = await newPlace.save();
     return result;
   }
 
-    findAll() {
-    return `This action returns all places`;
+  async findAll() {
+    const places = await this.placeModel.find().exec();
+    return places;
   }
 
 
