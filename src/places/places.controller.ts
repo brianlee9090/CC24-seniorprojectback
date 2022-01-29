@@ -13,9 +13,9 @@ export class PlacesController {
     //invokes getPlaceID
     const placeID = await this.placesService.getPlaceID(address);
     //invoke getPlaceInfo and return a placeinterface type
-    const placeInfo = await this.placesService.getPlaceInfo(placeID);
+    const newPlace = await this.placesService.getPlaceInfo(placeID);
     //const dbObj = await this.placesService.create(dbObj)  
-    //return this.placesService.create(address);
+    return this.placesService.create(newPlace);
   }
 
   @Get()

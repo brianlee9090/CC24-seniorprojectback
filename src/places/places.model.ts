@@ -4,7 +4,7 @@ import * as mongoose from 'mongoose';
 export const PlaceSchema = new mongoose.Schema({
     google_Id: String,
     name: String,
-    coord: [String],
+    coord: [Number],
     img: String,
     hours: [String],
     type: String
@@ -14,7 +14,7 @@ export const PlaceSchema = new mongoose.Schema({
 export interface PlaceInterface {
     google_Id: string,
     name: string,
-    coord: string[],
+    coord: number[],
     img: string,
     hours: string[],
     type: string

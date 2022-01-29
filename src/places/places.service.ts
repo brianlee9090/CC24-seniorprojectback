@@ -32,11 +32,12 @@ export class PlacesService {
     const { lat, lng } = data.result.geometry.location;
 
     const dataObj = {
-      type: data.result.icon,
+      google_Id: placeID,
       name: data.result.name,
       coord: [lat, lng],
-      hours: data.result.opening_hours.weekday_text,
       img: await this.getImageStr(data.result.photos[0].photo_reference),
+      hours: data.result.opening_hours.weekday_text,
+      type: data.result.icon,
     };
 
     return dataObj;    
@@ -56,9 +57,9 @@ export class PlacesService {
 
   //must define the type of return for the function; which here is a Promise
   //and the Promise needs a type; which here is the Place type(interface)
-  async create(address: string): Promise<string> {
+  async create(place: PlaceInterface): Promise<PlaceInterface> {
     //instantiate an instance of PlaceModel
-    const newPlace = new this.placeModel(address);
+    const newPlace = new this.placeModel(place);
     const result = await newPlace.save();
     return result;
   }
