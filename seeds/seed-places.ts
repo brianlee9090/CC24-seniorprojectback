@@ -4,7 +4,7 @@ const places = [
     "Code chrysalis",
     "Blue bottle coffee roppongi",
     "Sakurada shrine roppongi",
-    "Maduro",
+    "Maduro, roppongi",
     "sakurazaka park roppongi"
 ];
 
@@ -18,3 +18,4 @@ try {
 } catch (error) {
     console.log("Error posting place", error.status);
 }
+
