@@ -3,11 +3,11 @@ import * as mongoose from "mongoose";
 export const RouteSchema = new mongoose.Schema({
     stops: [{
         placeId: String,
-        coord: String
+        coord: [Number]
     }]
 });
 
-export interface Stop {
+export interface StopInterface {
     placeId: string;
-    coord: string;
+    coord: number[];
 }
