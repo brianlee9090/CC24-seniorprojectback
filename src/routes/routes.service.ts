@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
-import { Stop } from './routes.model';
+import { StopInterface } from './routes.model';
 
 @Injectable()
 export class RoutesService {
@@ -11,14 +11,15 @@ export class RoutesService {
     @InjectModel('Route') private routeModel: Model<any>,
   ) { }
   
-  async create(stops: Stop[]): Promise<string> {
+  async create(stops: StopInterface[]): Promise<any> {
     const newRoute = new this.routeModel({ stops });
     const result = await newRoute.save(); 
-    return "testing";
+    return result;
   }
 
-  findAll() {
-    return `This action returns all routes`;
+  async findAll() {
+    const routes = await this.routeModel.find().exec();
+    return routes;
   }
 
   findOne(id: number) {
