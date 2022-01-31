@@ -2,19 +2,20 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { RoutesService } from './routes.service';
 import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
-import { Stop } from './routes.model';
+import { StopInterface } from './routes.model';
 
 @Controller('routes')
 export class RoutesController {
-  constructor(private readonly routesService: RoutesService) {}
+  constructor(private readonly routesService: RoutesService) { }
 
   @Post()
-  create(@Body("stops") stops: Stop[]) {
+  create(@Body('stops') stops: StopInterface[]) {
     return this.routesService.create(stops);
   }
 
   @Get()
   findAll() {
+    //Returns route array
     return this.routesService.findAll();
   }
 

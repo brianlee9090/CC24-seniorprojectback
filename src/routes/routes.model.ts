@@ -7,7 +7,7 @@ export const RouteSchema = new mongoose.Schema({
     }]
 });
 
-export interface Stop {
+export interface StopInterface {
     placeId: string;
     coord: number[];
 }
