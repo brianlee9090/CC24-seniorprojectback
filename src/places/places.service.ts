@@ -17,7 +17,7 @@ export class PlacesService {
         key: process.env.GEOCODE_KEY
       }
     })
-    const placeID = data.results[0].place_id;
+    const placeID = data.results[0]?.place_id;
     return placeID;
   }
 
@@ -29,11 +29,11 @@ export class PlacesService {
       }
     });
 
-    const { lat, lng } = data.result.geometry.location;
+    const { lat, lng } = data.result?.geometry.location || {};
 
     const dataObj = {
       google_Id: placeID || "newId",
-      name: data.result.name || "noName",
+      name: data.result?.name || "noName",
       coord: [lat, lng] || [-1, -1],
       img: await this.getImageStr(data.result?.photos[0]?.photo_reference) || "No image available",
       hours: data.result?.opening_hours?.weekday_text || ["no hours provided"],

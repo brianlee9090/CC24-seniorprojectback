@@ -24,7 +24,7 @@ describe('RoutesController', () => {
     routesService = module.get<RoutesService>(RoutesService);
   });
 
-  describe.only('findAll', () => {
+  describe('findAll', () => {
     it('should return an array', async () => {
       const result = [];
       jest.spyOn(routesService, 'findAll').mockImplementation(async () => result);
