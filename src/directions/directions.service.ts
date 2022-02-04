@@ -17,7 +17,7 @@ export class DirectionsService {
           mode: 'walking',
           destination: destination, 
           key: `${process.env.USER_KEY}`,
-          language: 'en'
+          avoid: 'indoor'
         },
     });
     console.log("response:", response);
