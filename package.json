@@ -29,6 +29,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/mongoose": "^9.0.2",
     "@nestjs/platform-express": "^8.0.0",
+    "@types/google.maps": "^3.47.3",
     "axios": "^0.25.0",
     "cors": "^2.8.5",
     "dotenv": "^14.2.0",
