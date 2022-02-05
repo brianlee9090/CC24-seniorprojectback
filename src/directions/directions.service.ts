@@ -16,7 +16,8 @@ export class DirectionsService {
           origin: coordinates,
           mode: 'walking',
           destination: destination, 
-          key: `${process.env.USER_KEY}`
+          key: `${process.env.USER_KEY}`,
+          avoid: 'indoor'
         },
     });
     console.log("response:", response);

@@ -14,6 +14,10 @@ export class DirectionsController {
     return this.directionsService.create(createDirectionDto);
   }
 
+  @Get()
+  sayHello() {
+    return 'hello'
+  }
 
   @Get(':coordinates')
   getDirections(@Query('origin') coordinates: string, @Query('destination')destination: string) {
