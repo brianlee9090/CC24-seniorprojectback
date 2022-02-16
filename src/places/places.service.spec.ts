@@ -3,7 +3,7 @@ import { PlacesService } from './places.service';
 
 describe('PlacesService', () => {
   let service: PlacesService;
-
+  
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [PlacesService],

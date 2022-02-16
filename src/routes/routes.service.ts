@@ -18,7 +18,7 @@ export class RoutesService {
   }
 
   async findAll() {
-    const routes = await this.routeModel.find().exec();
+    const routes = await this.routeModel.find();
     return routes;
   }
 
